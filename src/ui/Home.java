@@ -3,10 +3,17 @@ package ui;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.print.PageFormat;
+import java.awt.print.Paper;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.text.MessageFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -19,12 +26,35 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.print.PageFormat;
+import java.awt.print.Paper;
+import java.awt.print.Printable;
+import static java.awt.print.Printable.NO_SUCH_PAGE;
+import static java.awt.print.Printable.PAGE_EXISTS;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class Home extends javax.swing.JFrame {
 
     /**
      * Creates new form Home
      */
+    
+     Double bHeight=0.0;
+     ArrayList<String> itemName = new ArrayList<>();
+    ArrayList<Integer> quantity = new ArrayList<>();
+    ArrayList<Double> itemPrice = new ArrayList<>();
+    ArrayList<Double> subtotal = new ArrayList<>();
+    
     public Home() {
         initComponents();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,48 +87,72 @@ public class Home extends javax.swing.JFrame {
     //
         public void ItemCost()
     {
-        double sum = 0;
-        
-        for (int i=0 ; i<jtable1.getRowCount(); i++)
-        {
-            sum = sum + Double.parseDouble(jtable1.getValueAt(i, 2).toString());
+     double sum = 0;
+    itemName.clear();
+    quantity.clear();
+    itemPrice.clear();
+    subtotal.clear();
+
+    for (int i = 0; i < jtable1.getRowCount(); i++) {
+        // Ensure proper parsing and handling of potential null or incorrect values
+        String item = jtable1.getValueAt(i, 1) != null ? jtable1.getValueAt(i, 1).toString() : "";
+        itemName.add(item);
+
+        int qty = 0;
+        try {
+            qty = Integer.parseInt(jtable1.getValueAt(i, 0).toString());
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
         }
-        SubTotal.setText(Double.toString(sum));
-        double ctotal = Double.parseDouble(SubTotal.getText());
-        
-        double tax = (ctotal * 12)/100;
-        String taxTotal = String.format("₱ %.2f", tax);
-        Tax.setText(taxTotal);
-        
-         String subTotal = String.format("₱ %.2f", ctotal);
-        SubTotal.setText(subTotal);
-        
-         String mytotal = String.format("₱ %.2f", ctotal + tax);
-        Total.setText(mytotal);
-        txtupTotal.setText(mytotal);
-        
-        String Barcode = String.format("%.2f", ctotal + tax);
-        barcode .setText(Barcode);
+        quantity.add(qty);
+
+        double price = 0.0;
+        try {
+            price = Double.parseDouble(jtable1.getValueAt(i, 2).toString());
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        itemPrice.add(price);
+
+        double rowSubtotal = qty * price;
+        subtotal.add(rowSubtotal);
+        sum += rowSubtotal;
+    }
+
+    SubTotal.setText(String.format("%.2f", sum));
+    double ctotal = sum;
+
+    double tax = (ctotal * 12) / 100;
+    String taxTotal = String.format("₱ %.2f", tax);
+    Tax.setText(taxTotal);
+
+    String subTotal = String.format("₱ %.2f", ctotal);
+    SubTotal.setText(subTotal);
+
+    String mytotal = String.format("₱ %.2f", ctotal + tax);
+    Total.setText(mytotal);
+    txtupTotal.setText(mytotal);
+
+    String Barcode = String.format("%.2f", ctotal + tax);
+    barcode.setText(Barcode);
     }
     
     // CHANGE
     
     public void Change()
     {
-        double sum = 0;
-        double tax = 12;
-        double cash = Double.parseDouble(cashDisplay.getText());
-        
-         for (int i=0 ; i<jtable1.getRowCount(); i++)
-        {
-            sum = sum + Double.parseDouble(jtable1.getValueAt(i, 2).toString());
-        }
-         
-         double newtax = (sum * 12)/100;
-         double change = (cash - (sum + newtax));
-         
-         String myChange = String .format("₱ %.2f", change);
-         changeDisplay.setText(myChange);
+       double sum = 0;
+    double cash = Double.parseDouble(cashDisplay.getText());
+
+    for (int i = 0; i < jtable1.getRowCount(); i++) {
+        sum += Double.parseDouble(jtable1.getValueAt(i, 2).toString());
+    }
+
+    double newtax = (sum * 12) / 100;
+    double change = cash - (sum + newtax);
+
+    String myChange = String.format("₱ %.2f", change);
+    changeDisplay.setText(myChange);
          
     }
 
@@ -971,6 +1025,11 @@ public class Home extends javax.swing.JFrame {
         jPanel8.add(jLabel6, gridBagConstraints);
 
         Total.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Total.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TotalActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
@@ -1063,7 +1122,7 @@ public class Home extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(0, 0, 0)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1089,7 +1148,7 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void printbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printbuttonActionPerformed
-      MessageFormat header = new MessageFormat("Bean There, Done That");
+     /* MessageFormat header = new MessageFormat("Bean There, Done That");
       MessageFormat footer = new MessageFormat("Page {0, number, integer}");
         
         try
@@ -1100,9 +1159,125 @@ public class Home extends javax.swing.JFrame {
         catch(java.awt.print.PrinterException e)
         {
             System.err.format("No Printer found", e.getMessage());
+        }*/
+      ItemCost();
+    Change();
+
+    // Perform the print job
+    bHeight = Double.valueOf(itemName.size());
+    PrinterJob pj = PrinterJob.getPrinterJob();        
+    pj.setPrintable(new BillPrintable(), getPageFormat(pj));
+    try {
+        pj.print();
+    } catch (PrinterException ex) {
+        ex.printStackTrace();
+    }
+        
+    }//GEN-LAST:event_printbuttonActionPerformed
+
+    public PageFormat getPageFormat(PrinterJob pj)
+{
+    
+    PageFormat pf = pj.defaultPage();
+    Paper paper = pf.getPaper();    
+
+    double bodyHeight = bHeight;  
+    double headerHeight = 5.0;                  
+    double footerHeight = 5.0;        
+    double width = cm_to_pp(8); 
+    double height = cm_to_pp(headerHeight+bodyHeight+footerHeight); 
+    paper.setSize(width, height);
+    paper.setImageableArea(0,10,width,height - cm_to_pp(1));  
+            
+    pf.setOrientation(PageFormat.PORTRAIT);  
+    pf.setPaper(paper);    
+
+    return pf;
+}
+   
+    
+    
+    protected static double cm_to_pp(double cm)
+    {            
+	        return toPPI(cm * 0.393600787);            
+    }
+ 
+protected static double toPPI(double inch)
+    {            
+	        return inch * 72d;            
+    }
+    
+public class BillPrintable implements Printable {
+   @Override
+    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {    
+        if (pageIndex != 0) return NO_SUCH_PAGE;
+
+        Graphics2D g2d = (Graphics2D) graphics;                    
+        double width = pageFormat.getImageableWidth();                               
+        g2d.translate((int) pageFormat.getImageableX(), (int) pageFormat.getImageableY()); 
+
+        try {
+            int y = 20;
+            int yShift = 10;
+            int headerRectHeight = 15;
+            g2d.setFont(new Font("Monospaced", Font.PLAIN, 9));
+            g2d.drawString("                                     ", 12, y); y += yShift;
+            g2d.drawString("        Bean There, Done That        ", 12, y); y += yShift;
+            g2d.drawString("                                     ", 12, y); y += yShift;
+               
+            g2d.drawString("   Brgy. Tagapo, Sta. Rosa, Laguna   ", 12, y); y += yShift;
+            g2d.drawString(" VAT Registered TIN: 000-000-000-000 ", 12, y); y += yShift;
+            g2d.drawString("    ", 12, y); y += yShift;
+            g2d.drawString("       ", 12, y); y += yShift;
+            g2d.drawString("-------------------------------------", 12, y); y += headerRectHeight;
+
+            g2d.drawString("  Qty        Item Name         Price ", 10, y); y += yShift;
+            g2d.drawString("-------------------------------------", 10, y); y += headerRectHeight;
+
+           Map<String, Integer> itemQuantities = new HashMap<>();
+
+            // Aggregate quantities
+            for (int s = 0; s < itemName.size(); s++) {
+                String name = itemName.get(s);
+                int quantityValue = quantity.get(s);
+
+                if (itemQuantities.containsKey(name)) {
+                    itemQuantities.put(name, itemQuantities.get(name) + quantityValue);
+                } else {
+                    itemQuantities.put(name, quantityValue);
+                }
+            }
+
+            // Print items with aggregated quantities
+            for (Map.Entry<String, Integer> entry : itemQuantities.entrySet()) {
+                String name = entry.getKey();
+                int totalQuantity = entry.getValue();
+                g2d.drawString(" " + totalQuantity + "           " + name + "         " + txtupTotal.getText(), 10, y);
+                y += yShift;
+            }
+
+            g2d.drawString("-------------------------------------", 10, y); y += yShift;
+            g2d.drawString(" Total amount:               " + txtupTotal.getText() + "   ", 10, y); y += yShift;
+            g2d.drawString("-------------------------------------", 10, y); y += yShift;
+            g2d.drawString(" Cash      :                 " +  "₱ " + cashDisplay.getText() + "   ", 10, y); y += yShift;
+            g2d.drawString("-------------------------------------", 10, y); y += yShift;
+            g2d.drawString(" Change   :                  " + changeDisplay.getText() + "   ", 10, y); y += yShift;
+            g2d.drawString("                                     ", 12, y); y += yShift;
+            g2d.drawString("                                     ", 12, y); y += yShift;
+
+            g2d.drawString("*************************************", 10, y); y += yShift;
+            g2d.drawString("       THANK YOU COME AGAIN          ", 10, y); y += yShift;
+            g2d.drawString("*************************************", 10, y); y += yShift;
+            g2d.drawString("       Bean There, Done That         ", 10, y); y += yShift;
+            g2d.drawString("                                     ", 10, y); y += yShift;       
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-    }//GEN-LAST:event_printbuttonActionPerformed
+        return PAGE_EXISTS;
+    }
+   }
 
     private void voidbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voidbuttonActionPerformed
            DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
@@ -1540,6 +1715,10 @@ private JFrame frame;
         ItemCost();
 
     }//GEN-LAST:event_upsizeActionPerformed
+
+    private void TotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TotalActionPerformed
 
     /**
      * @param args the command line arguments
