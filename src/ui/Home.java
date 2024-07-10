@@ -85,16 +85,14 @@ public class Home extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     
     //
-        public void ItemCost()
-    {
-     double sum = 0;
+     public void ItemCost() {
+    double sum = 0;
     itemName.clear();
     quantity.clear();
     itemPrice.clear();
     subtotal.clear();
 
     for (int i = 0; i < jtable1.getRowCount(); i++) {
-        // Ensure proper parsing and handling of potential null or incorrect values
         String item = jtable1.getValueAt(i, 1) != null ? jtable1.getValueAt(i, 1).toString() : "";
         itemName.add(item);
 
@@ -135,13 +133,10 @@ public class Home extends javax.swing.JFrame {
 
     String Barcode = String.format("%.2f", ctotal + tax);
     barcode.setText(Barcode);
-    }
-    
-    // CHANGE
-    
-    public void Change()
-    {
-       double sum = 0;
+}
+
+public void Change() {
+    double sum = 0;
     double cash = Double.parseDouble(cashDisplay.getText());
 
     for (int i = 0; i < jtable1.getRowCount(); i++) {
@@ -153,8 +148,14 @@ public class Home extends javax.swing.JFrame {
 
     String myChange = String.format("₱ %.2f", change);
     changeDisplay.setText(myChange);
-         
-    }
+}
+
+private double getTotalCost() {
+    String totalText = Total.getText().replace("₱", "").trim();
+    return Double.parseDouble(totalText);
+}
+
+
 
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -220,7 +221,7 @@ public class Home extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         tenders = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        transac = new javax.swing.JLabel();
         changeDisplay = new javax.swing.JTextField();
         cashDisplay = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
@@ -914,13 +915,18 @@ public class Home extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Change");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Cash");
+        transac.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        transac.setForeground(new java.awt.Color(255, 255, 255));
+        transac.setText("Cash");
 
         changeDisplay.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         cashDisplay.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cashDisplay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cashDisplayActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -935,7 +941,7 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(tenders, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(transac, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(6, 6, 6)
                             .addComponent(cashDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel3Layout.createSequentialGroup()
@@ -955,7 +961,7 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(tenders, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
+                    .addComponent(transac)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(cashDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1329,7 +1335,7 @@ private JFrame frame;
     }//GEN-LAST:event_tendersActionPerformed
 
     private void jbuttonconfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonconfirmActionPerformed
-          if (tenders.getSelectedItem().equals("Cash"))
+     /*     if (tenders.getSelectedItem().equals("Cash"))
      {
          Change();
      }
@@ -1338,7 +1344,20 @@ private JFrame frame;
          changeDisplay.setText("");
          cashDisplay.setText("");
      }
+*/
+   ItemCost();
 
+    // Parse the total cost from the Total label (assuming getTotalCost() is defined correctly)
+    double totalCost = getTotalCost(); // Make sure this returns the correct total cost
+
+    // Create a new instance of PaymentWindow
+    PaymentWindow paymentWindow = new PaymentWindow();
+    
+    // Set the total cost in PaymentWindow if there's a method to do so
+    paymentWindow.setTotalCost(totalCost); // Make sure PaymentWindow has a setTotalCost(double totalCost) method
+    
+    // Show the PaymentWindow
+    paymentWindow.setVisible(true);
     }//GEN-LAST:event_jbuttonconfirmActionPerformed
 
     private void jbutton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton1ActionPerformed
@@ -1720,6 +1739,10 @@ private JFrame frame;
         // TODO add your handling code here:
     }//GEN-LAST:event_TotalActionPerformed
 
+    private void cashDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashDisplayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cashDisplayActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1781,7 +1804,6 @@ private JFrame frame;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1824,6 +1846,7 @@ private JFrame frame;
     private javax.swing.JButton strawb;
     private javax.swing.JButton strawbs;
     private javax.swing.JComboBox<String> tenders;
+    private javax.swing.JLabel transac;
     private javax.swing.JTextField txtupTotal;
     private javax.swing.JButton upsize;
     private javax.swing.JButton vlatte;

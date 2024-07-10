@@ -1252,7 +1252,7 @@
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jLabel3" min="-2" pref="91" max="-2" attributes="0"/>
+                                  <Component id="transac" min="-2" pref="91" max="-2" attributes="0"/>
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                                   <Component id="cashDisplay" min="-2" pref="248" max="-2" attributes="0"/>
                               </Group>
@@ -1280,7 +1280,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <Component id="transac" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                               <Component id="cashDisplay" min="-2" max="-2" attributes="0"/>
@@ -1342,7 +1342,7 @@
                 <Property name="text" type="java.lang.String" value="Change"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="transac">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="1"/>
@@ -1366,6 +1366,9 @@
                   <Font name="Segoe UI" size="18" style="1"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cashDisplayActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
