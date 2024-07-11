@@ -4,6 +4,14 @@
  */
 package ui;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author Noli Licudo
@@ -37,13 +45,13 @@ public class LogIn extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        loginHome = new javax.swing.JButton();
+        signupHome = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
+        usernameLogin = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        passwordLogin = new javax.swing.JPasswordField();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
@@ -97,15 +105,15 @@ public class LogIn extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(0, 51, 51));
         jPanel4.setLayout(new java.awt.GridBagLayout());
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 51, 51));
-        jButton2.setText("Login");
-        jButton2.setToolTipText("");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 153, 153), new java.awt.Color(255, 255, 255), new java.awt.Color(0, 51, 0), new java.awt.Color(0, 51, 51)));
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        loginHome.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        loginHome.setForeground(new java.awt.Color(0, 51, 51));
+        loginHome.setText("Login");
+        loginHome.setToolTipText("");
+        loginHome.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 153, 153), new java.awt.Color(255, 255, 255), new java.awt.Color(0, 51, 0), new java.awt.Color(0, 51, 51)));
+        loginHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        loginHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                loginHomeActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -115,17 +123,17 @@ public class LogIn extends javax.swing.JFrame {
         gridBagConstraints.ipady = 17;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 6);
-        jPanel4.add(jButton2, gridBagConstraints);
+        jPanel4.add(loginHome, gridBagConstraints);
 
-        jButton1.setBackground(new java.awt.Color(0, 51, 51));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Sign Up");
-        jButton1.setToolTipText("");
-        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        signupHome.setBackground(new java.awt.Color(0, 51, 51));
+        signupHome.setForeground(new java.awt.Color(255, 255, 255));
+        signupHome.setText("Sign Up");
+        signupHome.setToolTipText("");
+        signupHome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        signupHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        signupHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                signupHomeActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -135,7 +143,7 @@ public class LogIn extends javax.swing.JFrame {
         gridBagConstraints.ipady = 26;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(12, 6, 6, 6);
-        jPanel4.add(jButton1, gridBagConstraints);
+        jPanel4.add(signupHome, gridBagConstraints);
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Account.png"))); // NOI18N
@@ -143,10 +151,9 @@ public class LogIn extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 51, 51));
         jPanel5.setLayout(new java.awt.GridBagLayout());
 
-        jTextField2.setText("jTextField2");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        usernameLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                usernameLoginActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -156,12 +163,10 @@ public class LogIn extends javax.swing.JFrame {
         gridBagConstraints.ipady = 22;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        jPanel5.add(jTextField2, gridBagConstraints);
+        jPanel5.add(usernameLogin, gridBagConstraints);
 
         jPanel6.setBackground(new java.awt.Color(0, 51, 51));
         jPanel6.setLayout(new java.awt.GridBagLayout());
-
-        jPasswordField1.setText("jPasswordField1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -169,7 +174,7 @@ public class LogIn extends javax.swing.JFrame {
         gridBagConstraints.ipady = 19;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        jPanel6.add(jPasswordField1, gridBagConstraints);
+        jPanel6.add(passwordLogin, gridBagConstraints);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -245,21 +250,80 @@ public class LogIn extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void signupHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupHomeActionPerformed
         SignUp signUp = new SignUp();
     signUp.setVisible(true);
     this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_signupHomeActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void loginHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginHomeActionPerformed
+   String username = usernameLogin.getText(); 
+    String password = new String(passwordLogin.getPassword()); 
+
+    if (username.isEmpty() || password.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Please enter both Username and Password", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    // Authentication logic
+    boolean authenticated = authenticateUser(username, password);
+
+    if (authenticated) {
+        // Navigate to the main application window or perform actions
         Home home = new Home();
-    home.setVisible(true);
-    this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+        home.setVisible(true);
+        this.dispose();
+    }
+    else {
+        JOptionPane.showMessageDialog(this, "Invalid Username or Password", "Authentication Failed", JOptionPane.ERROR_MESSAGE);
+    }
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+
+    
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_loginHomeActionPerformed
+
+private boolean authenticateUser(String username, String password) {
+    boolean isAuthenticated = false;
+    Connection con = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+
+    try {
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3307/pos", "root", "");
+        String query = "SELECT * FROM users WHERE username = ? AND password = ?";
+        pstmt = con.prepareStatement(query);
+        pstmt.setString(1, username);
+        pstmt.setString(2, password);
+
+        rs = pstmt.executeQuery();
+
+        if (rs.next()) {
+            isAuthenticated = true; // User found
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Database Error: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (pstmt != null) pstmt.close();
+            if (con != null) con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    return isAuthenticated;
+}  
+
+    private void usernameLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_usernameLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -297,30 +361,22 @@ public class LogIn extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JButton loginHome;
+    private javax.swing.JPasswordField passwordLogin;
+    private javax.swing.JButton signupHome;
+    private javax.swing.JTextField usernameLogin;
     // End of variables declaration//GEN-END:variables
 }
