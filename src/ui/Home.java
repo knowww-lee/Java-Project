@@ -1208,68 +1208,88 @@ protected static double toPPI(double inch)
     }
     
 public class BillPrintable implements Printable {
-   @Override
-    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {    
+  public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
         if (pageIndex != 0) return NO_SUCH_PAGE;
 
-        Graphics2D g2d = (Graphics2D) graphics;                    
-        double width = pageFormat.getImageableWidth();                               
-        g2d.translate((int) pageFormat.getImageableX(), (int) pageFormat.getImageableY()); 
+        Graphics2D g2d = (Graphics2D) graphics;
+        double width = pageFormat.getImageableWidth();
+        g2d.translate((int) pageFormat.getImageableX(), (int) pageFormat.getImageableY());
 
         try {
             int y = 20;
             int yShift = 10;
             int headerRectHeight = 15;
             g2d.setFont(new Font("Monospaced", Font.PLAIN, 9));
-            g2d.drawString("                                     ", 12, y); y += yShift;
-            g2d.drawString("        Bean There, Done That        ", 12, y); y += yShift;
-            g2d.drawString("                                     ", 12, y); y += yShift;
-               
-            g2d.drawString("   Brgy. Tagapo, Sta. Rosa, Laguna   ", 12, y); y += yShift;
-            g2d.drawString(" VAT Registered TIN: 000-000-000-000 ", 12, y); y += yShift;
-            g2d.drawString("    ", 12, y); y += yShift;
-            g2d.drawString("       ", 12, y); y += yShift;
-            g2d.drawString("-------------------------------------", 12, y); y += headerRectHeight;
+            g2d.drawString("                                     ", 12, y);
+            y += yShift;
+            g2d.drawString("        Bean There, Done That        ", 12, y);
+            y += yShift;
+            g2d.drawString("                                     ", 12, y);
+            y += yShift;
 
-            g2d.drawString("  Qty        Item Name         Price ", 10, y); y += yShift;
-            g2d.drawString("-------------------------------------", 10, y); y += headerRectHeight;
+            g2d.drawString("   Brgy. Tagapo, Sta. Rosa, Laguna   ", 12, y);
+            y += yShift;
+            g2d.drawString(" VAT Registered TIN: 000-000-000-000 ", 12, y);
+            y += yShift;
+            g2d.drawString("    ", 12, y);
+            y += yShift;
+            g2d.drawString("       ", 12, y);
+            y += yShift;
+            g2d.drawString("-------------------------------------", 12, y);
+            y += headerRectHeight;
 
-           Map<String, Integer> itemQuantities = new HashMap<>();
+            g2d.drawString("  Qty        Item Name         Price ", 10, y);
+            y += yShift;
+            g2d.drawString("-------------------------------------", 10, y);
+            y += headerRectHeight;
+
+            Map<String, Integer> itemQuantities = new HashMap<>();
 
             // Aggregate quantities
             for (int s = 0; s < itemName.size(); s++) {
                 String name = itemName.get(s);
                 int quantityValue = quantity.get(s);
+                double aPrice = itemPrice.get(s);
+                  double priceWithTax = aPrice* (1 + 0.12); // 12% tax added
 
                 if (itemQuantities.containsKey(name)) {
                     itemQuantities.put(name, itemQuantities.get(name) + quantityValue);
                 } else {
                     itemQuantities.put(name, quantityValue);
                 }
-            }
 
-            // Print items with aggregated quantities
-            for (Map.Entry<String, Integer> entry : itemQuantities.entrySet()) {
-                String name = entry.getKey();
-                int totalQuantity = entry.getValue();
-                g2d.drawString(" " + totalQuantity + "           " + name + "         " + txtupTotal.getText(), 10, y);
+                // Print items with aggregated quantities
+                g2d.drawString(" " + quantityValue + "           " + name + "         " + String.format("%.2f", priceWithTax), 10, y);
                 y += yShift;
             }
 
-            g2d.drawString("-------------------------------------", 10, y); y += yShift;
-            g2d.drawString(" Total amount:               " + txtupTotal.getText() + "   ", 10, y); y += yShift;
-            g2d.drawString("-------------------------------------", 10, y); y += yShift;
-            g2d.drawString(" Cash      :                 " +  "₱ " + cashDisplay.getText() + "   ", 10, y); y += yShift;
-            g2d.drawString("-------------------------------------", 10, y); y += yShift;
-            g2d.drawString(" Change   :                  " + changeDisplay.getText() + "   ", 10, y); y += yShift;
-            g2d.drawString("                                     ", 12, y); y += yShift;
-            g2d.drawString("                                     ", 12, y); y += yShift;
+            g2d.drawString("-------------------------------------", 10, y);
+            y += yShift;
+            g2d.drawString(" Total amount:               " + txtupTotal.getText() + "   ", 10, y);
+            y += yShift;
+            g2d.drawString("-------------------------------------", 10, y);
+            y += yShift;
+            g2d.drawString(" Cash      :                 " + "₱ " + cashDisplay.getText() + "   ", 10, y);
+            y += yShift;
+            g2d.drawString("-------------------------------------", 10, y);
+            y += yShift;
+            g2d.drawString(" Change   :                  " + changeDisplay.getText() + "   ", 10, y);
+            y += yShift;
+            g2d.drawString("                                     ", 12, y);
+            y += yShift;
+            g2d.drawString("                                     ", 12, y);
+            y += yShift;
 
-            g2d.drawString("*************************************", 10, y); y += yShift;
-            g2d.drawString("       THANK YOU COME AGAIN          ", 10, y); y += yShift;
-            g2d.drawString("*************************************", 10, y); y += yShift;
-            g2d.drawString("       Bean There, Done That         ", 10, y); y += yShift;
-            g2d.drawString("                                     ", 10, y); y += yShift;       
+            g2d.drawString("*************************************", 10, y);
+            y += yShift;
+            g2d.drawString("       THANK YOU COME AGAIN          ", 10, y);
+            y += yShift;
+            g2d.drawString("*************************************", 10, y);
+            y += yShift;
+            g2d.drawString("       Bean There, Done That         ", 10, y);
+            y += yShift;
+            g2d.drawString("                                     ", 10, y);
+            y += yShift;
 
         } catch (Exception e) {
             e.printStackTrace();
