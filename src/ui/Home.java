@@ -1319,7 +1319,9 @@ private JFrame frame;
     if (JOptionPane.showConfirmDialog(frame, "Do you want to exit?", "Exit Confirmation",
             JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) 
     {
-        System.exit(0);
+        LogIn login = new LogIn();
+    login.setVisible(true);
+    this.dispose();
     }
 
     }//GEN-LAST:event_jButton6ActionPerformed
