@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import BCrypt.BCrypt;
+import javax.swing.ImageIcon;
 
 
 
@@ -26,6 +27,7 @@ public class LogIn extends javax.swing.JFrame {
     public LogIn() {
         initComponents();
         
+               
     }
 
     /**
@@ -248,7 +250,7 @@ private boolean authenticateUser(String username, String plaintextPassword) {
     ResultSet rs = null;
 
     try {
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3307/pos", "root", "");
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pos", "root", "");
         String query = "SELECT password FROM users WHERE username = ?";
         pstmt = con.prepareStatement(query);
         pstmt.setString(1, username);
@@ -315,6 +317,7 @@ private boolean authenticateUser(String username, String plaintextPassword) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LogIn().setVisible(true);
+                
             }
         });
     }

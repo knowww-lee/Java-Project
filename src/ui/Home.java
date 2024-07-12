@@ -43,6 +43,9 @@ import java.util.Map;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import java.lang.Math;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.swing.JDialog;
 import java.util.Random;
 
@@ -51,6 +54,7 @@ public class Home extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
+    private Connection con;
     
      Double bHeight=0.0;
      ArrayList<String> itemName = new ArrayList<>();
@@ -63,7 +67,11 @@ public class Home extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Maximize the JFrame to occupy the whole screen
         setExtendedState(JFrame.MAXIMIZED_BOTH);
-          startTimerToUpdateDateLabel();
+            startTimerToUpdateDateLabel();
+            con = db.mycon();
+            setTitle("Bean There, Done That");
+            ImageIcon icon = new ImageIcon("Bean There, DOne That(3).png"); // Replace with your icon's path
+            setIconImage(icon.getImage());
      
     }
       private void updateDateLabel() {
@@ -211,6 +219,7 @@ public class Home extends javax.swing.JFrame {
         voidbutton = new javax.swing.JButton();
         reset = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        btnsales = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -485,6 +494,16 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        btnsales.setBackground(new java.awt.Color(0, 0, 0));
+        btnsales.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        btnsales.setForeground(new java.awt.Color(255, 255, 255));
+        btnsales.setText("Sales");
+        btnsales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsalesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -492,6 +511,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnsales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(printbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
@@ -500,31 +520,34 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(voidbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jbuttonconfirm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(barcode)
+                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jbutton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jbutton2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jbutton3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jbutton4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jbutton5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jbutton6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jbutton7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jbutton8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jbutton9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jbutton0, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jbuttondot, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jbuttonclear, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jbutton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jbutton2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jbutton3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jbutton4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jbutton5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jbutton6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jbutton7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jbutton8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jbutton9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jbutton0, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jbuttondot, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jbuttonclear, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(33, 33, 33))
         );
         jPanel7Layout.setVerticalGroup(
@@ -561,7 +584,9 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnsales, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
 
         jtable1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -1150,7 +1175,14 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void printbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printbuttonActionPerformed
-     /* MessageFormat header = new MessageFormat("Bean There, Done That");
+     
+        try {
+            insertDataIntoDatabase();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error inserting data: " + ex.getMessage());
+        }
+        
+        /* MessageFormat header = new MessageFormat("Bean There, Done That");
       MessageFormat footer = new MessageFormat("Page {0, number, integer}");
         
         try
@@ -1647,7 +1679,8 @@ if (formattedCashAmount != null && !formattedCashAmount.isEmpty()) {
        changeDisplay.setText("");
 
     }//GEN-LAST:event_jbuttonclearActionPerformed
-
+    
+    
     private void caramelMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caramelMActionPerformed
               double Price = 133.93;
         double cPrice = ((Price * 12)/100) + Price;
@@ -1867,6 +1900,48 @@ if (formattedCashAmount != null && !formattedCashAmount.isEmpty()) {
         // TODO add your handling code here:
     }//GEN-LAST:event_changeDisplayActionPerformed
 
+    private void btnsalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalesActionPerformed
+        Sales sale = new Sales ();
+        sale.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnsalesActionPerformed
+
+    
+    public void insertDataIntoDatabase() throws SQLException {
+
+        con.setAutoCommit(false); // Set autocommit to false
+    
+    String sql = "INSERT INTO sales (subTotal, tax, total, method) VALUES (?, ?, ?, ?)";
+    PreparedStatement stmt = con.prepareStatement(sql);
+    
+    double sumOfSubTotal = 0.0;
+    double sumOfTax = 0.0;
+    double sumOfTotal = 0.0;
+    
+    for (int i = 0; i < jtable1.getRowCount(); i++) {
+        double subTotal = Double.parseDouble(jtable1.getValueAt(i, 2).toString());
+        double total = Double.parseDouble(jtable1.getValueAt(i, 3).toString());
+        double tax = total - subTotal;
+        String method = (String) tenders.getSelectedItem(); // Get the selected value from a combobox
+        
+        sumOfSubTotal += subTotal;
+        sumOfTax += tax;
+        sumOfTotal += total;
+
+        stmt.setString(4, method);
+    }
+        stmt.setDouble(1, sumOfSubTotal);
+        stmt.setDouble(2, sumOfTax);
+        stmt.setDouble(3, sumOfTotal);
+        
+
+        stmt.executeUpdate();
+        
+        // Commit the changes to the database
+        con.commit();
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -1910,6 +1985,7 @@ if (formattedCashAmount != null && !formattedCashAmount.isEmpty()) {
     private javax.swing.JButton apple;
     private javax.swing.JTextField barcode;
     private javax.swing.JButton bbck;
+    private javax.swing.JButton btnsales;
     private javax.swing.JButton cappuccino;
     private javax.swing.JButton caramelM;
     private javax.swing.JTextField cashDisplay;

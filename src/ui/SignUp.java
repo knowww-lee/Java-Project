@@ -226,7 +226,7 @@ public class SignUp extends javax.swing.JFrame {
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         // Establish connection to the MySQL database
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3307/pos", "root", "");
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pos", "root", "");
         
         // Check if username already exists
         String checkQuery = "SELECT username FROM users WHERE username = ?";
