@@ -44,6 +44,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import java.lang.Math;
 import javax.swing.JDialog;
+import java.util.Random;
 
 public class Home extends javax.swing.JFrame {
 
@@ -149,7 +150,8 @@ public class Home extends javax.swing.JFrame {
     
     public void Change()
     {
-       double sum = 0;
+       if (tenders.getSelectedItem().equals("Cash")) {
+    double sum = 0;
     double cash = Double.parseDouble(cashDisplay.getText());
 
     for (int i = 0; i < jtable1.getRowCount(); i++) {
@@ -161,6 +163,21 @@ public class Home extends javax.swing.JFrame {
 
     String myChange = String.format("₱ %.2f", change);
     changeDisplay.setText(myChange);
+} 
+     else {
+           double sum = 0;
+   double cash = Double.parseDouble(cashDisplay.getText());
+
+    for (int i = 0; i < jtable1.getRowCount(); i++) {
+        sum += Double.parseDouble(jtable1.getValueAt(i, 2).toString());
+    }
+
+  
+    double change = sum * 0;
+
+    String myChange = String.format("₱ %.2f", change);
+    changeDisplay.setText(myChange);
+}
          
     }
 
@@ -233,7 +250,7 @@ public class Home extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         tenders = new javax.swing.JComboBox<>();
         cashDisplay = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        cashLabel = new javax.swing.JLabel();
         changeDisplay = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         txtupTotal = new javax.swing.JTextField();
@@ -824,55 +841,55 @@ public class Home extends javax.swing.JFrame {
                 .addGap(66, 66, 66)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(wmochaf, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                        .addComponent(wmochaf, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(mochaf, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                        .addComponent(mochaf, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(bbck, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                        .addComponent(bbck, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(lvck, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                        .addComponent(lvck, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(upsize, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
+                        .addComponent(upsize, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(caramelM, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                        .addComponent(caramelM, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(cappuccino, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                        .addComponent(cappuccino, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(americano, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                        .addComponent(americano, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(wmocha, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                        .addComponent(wmocha, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(mocha, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
+                        .addComponent(mocha, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(passion, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                        .addComponent(passion, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(cranb, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                        .addComponent(cranb, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(mango, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                        .addComponent(mango, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(strawb, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                        .addComponent(strawb, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(melon, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
+                        .addComponent(melon, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(apple, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                        .addComponent(apple, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(lemon, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                        .addComponent(lemon, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(gapple, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                        .addComponent(gapple, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(orange, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                        .addComponent(orange, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(strawbs, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
+                        .addComponent(strawbs, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(matchal, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                        .addComponent(matchal, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(dmatcha, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                        .addComponent(dmatcha, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(clatte, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                        .addComponent(clatte, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(saltedC, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                        .addComponent(saltedC, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(vlatte, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)))
+                        .addComponent(vlatte, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)))
                 .addGap(82, 82, 82))
         );
         jPanel1Layout.setVerticalGroup(
@@ -955,7 +972,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Tenders");
+        jLabel1.setText("Payment");
 
         tenders.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         tenders.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cash", "CC/DC", "QRPH" }));
@@ -968,9 +985,9 @@ public class Home extends javax.swing.JFrame {
 
         cashDisplay.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Cash");
+        cashLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        cashLabel.setForeground(new java.awt.Color(255, 255, 255));
+        cashLabel.setText("Cash");
 
         changeDisplay.setEditable(false);
         changeDisplay.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -1003,7 +1020,7 @@ public class Home extends javax.swing.JFrame {
                 .addGap(146, 146, 146)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cashLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1023,7 +1040,7 @@ public class Home extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
+                            .addComponent(cashLabel)
                             .addComponent(cashDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1285,7 +1302,7 @@ protected static double toPPI(double inch)
                 "-------------------------------------",
                 " Total amount:          " + txtupTotal.getText() + "   ",
                 "-------------------------------------",
-                " Cash      :            " + "₱ " + cashDisplay.getText() + "   ",
+                " Payment   :            " + "₱ " + cashDisplay.getText() + "   ",
                 "-------------------------------------",
                 " Change   :             " + changeDisplay.getText() + "   ",
                 "                                     ",
@@ -1370,7 +1387,12 @@ private JFrame frame;
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void tendersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tendersActionPerformed
-        // TODO add your handling code here:
+          String selected = (String) tenders.getSelectedItem();
+        if ("Cash".equals(selected)) {
+            cashLabel.setText("Cash");
+        } else {
+            cashLabel.setText("Code");
+        }
     }//GEN-LAST:event_tendersActionPerformed
 
      
@@ -1385,10 +1407,12 @@ private JFrame frame;
         Total.setText("");
         txtupTotal.setText("");
  }
+ 
   
     private void jbuttonconfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonconfirmActionPerformed
       
-        if (tenders.getSelectedItem().equals("Cash")) {
+         if (tenders.getSelectedItem().equals("Cash")) {
+        // Existing logic for handling cash input
         String cashInput = cashDisplay.getText().trim();
         String totalInput = Total.getText().trim();
 
@@ -1403,25 +1427,19 @@ private JFrame frame;
                 double totalAmount = Double.parseDouble(cleanTotalInput);
 
                 if (cashAmount < totalAmount) {
-                    
                     JOptionPane.showMessageDialog(this, "Cash amount must be equal to or greater than Total.", "Insufficient Cash", JOptionPane.ERROR_MESSAGE);
                 } else {
                     // Proceed with your logic when cash amount is sufficient
                     Change(); // Call your Change() method or perform required actions
                     String formattedCashAmount = String.format("%.2f", cashAmount);
                     cashDisplay.setText(formattedCashAmount);
-                  
 
-                    // Clear any previous error messages
-                    JOptionPane.getRootFrame().dispose(); // Disposes previous dialogs
-                                       // Show confirmation dialog
+                    // Show confirmation dialog
                     int result = JOptionPane.showConfirmDialog(this, "CONFIRM PAYMENT?", "Payment", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
                     if (result == JOptionPane.YES_OPTION) {
                         printbuttonActionPerformed(evt); // Call the print button action
                     }
-
-                     
                 }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "Invalid input. Please enter valid numeric values.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -1430,10 +1448,30 @@ private JFrame frame;
             JOptionPane.showMessageDialog(this, "Select item/s and enter the cash amount.", "Missing Input", JOptionPane.ERROR_MESSAGE);
         }
     } else {
-        changeDisplay.setText("");
-        cashDisplay.setText("");
-    }
+        changeDisplay.setText("0.00");
+         cashDisplay.setText("0000");
+        // Set changeDisplay to "0.00"
 
+// Generate a random number for cashDisplay
+Random rand = new Random();
+double randomCash = 1000 + (5000 - 1000) * rand.nextDouble(); // Generate a random number between 1000 and 5000
+String formattedCashAmount = String.format("%.2f", randomCash);
+changeDisplay.setForeground(Color.BLACK);
+// Validate the generated random number is not null or empty
+if (formattedCashAmount != null && !formattedCashAmount.isEmpty()) {
+    cashDisplay.setText("0000"); // Set the generated random number in cashDisplay
+   
+
+    // Show confirmation dialog
+    int result = JOptionPane.showConfirmDialog(this, "CONFIRM PAYMENT?", "Payment", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+    if (result == JOptionPane.YES_OPTION) {
+        printbuttonActionPerformed(evt); // Call the print button action
+    } 
+} else {
+    JOptionPane.showMessageDialog(this, "Put a code.", "Error", JOptionPane.ERROR_MESSAGE);
+}
+         }
     }//GEN-LAST:event_jbuttonconfirmActionPerformed
 
     private void jbutton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton1ActionPerformed
@@ -1875,6 +1913,7 @@ private JFrame frame;
     private javax.swing.JButton cappuccino;
     private javax.swing.JButton caramelM;
     private javax.swing.JTextField cashDisplay;
+    private javax.swing.JLabel cashLabel;
     private javax.swing.JTextField changeDisplay;
     private javax.swing.JButton clatte;
     private javax.swing.JButton cranb;
@@ -1890,7 +1929,6 @@ private JFrame frame;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
