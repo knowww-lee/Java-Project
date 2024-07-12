@@ -42,6 +42,8 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import java.lang.Math;
+import javax.swing.JDialog;
 
 public class Home extends javax.swing.JFrame {
 
@@ -67,7 +69,7 @@ public class Home extends javax.swing.JFrame {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String formattedDateTime = now.format(formatter);
-        date.setText("Current Date and Time: " + formattedDateTime);
+        date.setText("Date/Time: " + formattedDateTime);
     }
       private void startTimerToUpdateDateLabel() {
         Timer timer = new Timer(1000, (ActionEvent e) -> {
@@ -123,13 +125,19 @@ public class Home extends javax.swing.JFrame {
     double ctotal = sum;
 
     double tax = (ctotal * 12) / 100;
+    
     String taxTotal = String.format("₱ %.2f", tax);
     Tax.setText(taxTotal);
 
     String subTotal = String.format("₱ %.2f", ctotal);
     SubTotal.setText(subTotal);
 
-    String mytotal = String.format("₱ %.2f", ctotal + tax);
+    double hatdog = ctotal + tax;
+    double aTotall = Math.round(hatdog * 100.0) / 100.0;
+    if (aTotall - (int) aTotall >= 0.995) {
+            aTotall = Math.ceil(aTotall);  // Round up using Math.ceil() if necessary
+        }
+    String mytotal = String.format("₱ %.2f", aTotall);
     Total.setText(mytotal);
     txtupTotal.setText(mytotal);
 
@@ -159,7 +167,6 @@ public class Home extends javax.swing.JFrame {
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jButton3 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
@@ -216,20 +223,18 @@ public class Home extends javax.swing.JFrame {
         upsize = new javax.swing.JButton();
         mochaf = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        SubTotal = new javax.swing.JTextField();
+        Tax = new javax.swing.JTextField();
+        Total = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         tenders = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
+        cashDisplay = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         changeDisplay = new javax.swing.JTextField();
-        cashDisplay = new javax.swing.JTextField();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        SubTotal = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        Tax = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        Total = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         txtupTotal = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -260,6 +265,7 @@ public class Home extends javax.swing.JFrame {
         jbutton2.setForeground(new java.awt.Color(255, 255, 255));
         jbutton2.setText("2");
         jbutton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+        jbutton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbutton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbutton2ActionPerformed(evt);
@@ -271,6 +277,7 @@ public class Home extends javax.swing.JFrame {
         jbutton3.setForeground(new java.awt.Color(255, 255, 255));
         jbutton3.setText("3");
         jbutton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+        jbutton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbutton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbutton3ActionPerformed(evt);
@@ -282,6 +289,7 @@ public class Home extends javax.swing.JFrame {
         jbutton1.setForeground(new java.awt.Color(255, 255, 255));
         jbutton1.setText("1");
         jbutton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+        jbutton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbutton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbutton1ActionPerformed(evt);
@@ -293,6 +301,7 @@ public class Home extends javax.swing.JFrame {
         jbutton5.setForeground(new java.awt.Color(255, 255, 255));
         jbutton5.setText("5");
         jbutton5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+        jbutton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbutton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbutton5ActionPerformed(evt);
@@ -304,6 +313,7 @@ public class Home extends javax.swing.JFrame {
         jbutton6.setForeground(new java.awt.Color(255, 255, 255));
         jbutton6.setText("6");
         jbutton6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+        jbutton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbutton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbutton6ActionPerformed(evt);
@@ -315,6 +325,7 @@ public class Home extends javax.swing.JFrame {
         jbutton4.setForeground(new java.awt.Color(255, 255, 255));
         jbutton4.setText("4");
         jbutton4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+        jbutton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbutton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbutton4ActionPerformed(evt);
@@ -326,6 +337,7 @@ public class Home extends javax.swing.JFrame {
         jbutton8.setForeground(new java.awt.Color(255, 255, 255));
         jbutton8.setText("8");
         jbutton8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+        jbutton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbutton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbutton8ActionPerformed(evt);
@@ -337,6 +349,7 @@ public class Home extends javax.swing.JFrame {
         jbutton9.setForeground(new java.awt.Color(255, 255, 255));
         jbutton9.setText("9");
         jbutton9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+        jbutton9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbutton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbutton9ActionPerformed(evt);
@@ -348,6 +361,7 @@ public class Home extends javax.swing.JFrame {
         jbutton7.setForeground(new java.awt.Color(255, 255, 255));
         jbutton7.setText("7");
         jbutton7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+        jbutton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbutton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbutton7ActionPerformed(evt);
@@ -359,6 +373,7 @@ public class Home extends javax.swing.JFrame {
         jbuttondot.setForeground(new java.awt.Color(255, 255, 255));
         jbuttondot.setText(".");
         jbuttondot.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+        jbuttondot.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbuttondot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbuttondotActionPerformed(evt);
@@ -370,6 +385,7 @@ public class Home extends javax.swing.JFrame {
         jbuttonclear.setForeground(new java.awt.Color(255, 255, 255));
         jbuttonclear.setText("C");
         jbuttonclear.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+        jbuttonclear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbuttonclear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbuttonclearActionPerformed(evt);
@@ -381,20 +397,23 @@ public class Home extends javax.swing.JFrame {
         jbutton0.setForeground(new java.awt.Color(255, 255, 255));
         jbutton0.setText("0");
         jbutton0.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+        jbutton0.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbutton0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbutton0ActionPerformed(evt);
             }
         });
 
+        barcode.setEditable(false);
         barcode.setFont(new java.awt.Font("IDAutomationHC39M", 0, 24)); // NOI18N
         barcode.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jbuttonconfirm.setBackground(new java.awt.Color(0, 255, 153));
+        jbuttonconfirm.setBackground(new java.awt.Color(0, 204, 51));
         jbuttonconfirm.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jbuttonconfirm.setForeground(new java.awt.Color(255, 255, 255));
-        jbuttonconfirm.setText("CONFIRM");
+        jbuttonconfirm.setText("PAY");
         jbuttonconfirm.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jbuttonconfirm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbuttonconfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbuttonconfirmActionPerformed(evt);
@@ -406,6 +425,7 @@ public class Home extends javax.swing.JFrame {
         printbutton.setForeground(new java.awt.Color(255, 255, 255));
         printbutton.setText("Print");
         printbutton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        printbutton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         printbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 printbuttonActionPerformed(evt);
@@ -417,6 +437,7 @@ public class Home extends javax.swing.JFrame {
         voidbutton.setForeground(new java.awt.Color(255, 255, 255));
         voidbutton.setText("Void");
         voidbutton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        voidbutton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         voidbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 voidbuttonActionPerformed(evt);
@@ -428,6 +449,7 @@ public class Home extends javax.swing.JFrame {
         reset.setForeground(new java.awt.Color(255, 255, 255));
         reset.setText("Reset");
         reset.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        reset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resetActionPerformed(evt);
@@ -439,6 +461,7 @@ public class Home extends javax.swing.JFrame {
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Exit");
         jButton6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -801,55 +824,55 @@ public class Home extends javax.swing.JFrame {
                 .addGap(66, 66, 66)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(wmochaf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(wmochaf, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(mochaf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(mochaf, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(bbck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bbck, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(lvck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lvck, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(upsize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(upsize, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(caramelM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(caramelM, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(cappuccino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cappuccino, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(americano, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(americano, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(wmocha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(wmocha, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(mocha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(mocha, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(passion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(passion, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(cranb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cranb, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(mango, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(mango, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(strawb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(strawb, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(melon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(melon, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(apple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(apple, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(lemon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lemon, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(gapple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(gapple, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(orange, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(orange, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(strawbs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(strawbs, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(matchal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(matchal, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(dmatcha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(dmatcha, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(clatte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(clatte, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(saltedC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(saltedC, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(vlatte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(vlatte, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)))
                 .addGap(82, 82, 82))
         );
         jPanel1Layout.setVerticalGroup(
@@ -893,9 +916,42 @@ public class Home extends javax.swing.JFrame {
                 .addGap(60, 60, 60))
         );
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBackground(new java.awt.Color(0, 153, 153));
 
-        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
+        SubTotal.setEditable(false);
+        SubTotal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        Tax.setEditable(false);
+        Tax.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Tax.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TaxActionPerformed(evt);
+            }
+        });
+
+        Total.setEditable(false);
+        Total.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Total.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TotalActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Subtotal");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Tax");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Total");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Change");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -910,158 +966,87 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Change");
+        cashDisplay.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Cash");
 
+        changeDisplay.setEditable(false);
         changeDisplay.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-
-        cashDisplay.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tenders, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(6, 6, 6)
-                            .addComponent(cashDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(6, 6, 6)
-                            .addComponent(changeDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 0, 0))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(tenders, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(cashDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(7, 7, 7)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(changeDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-
-        jPanel8.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel8.setLayout(new java.awt.GridBagLayout());
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Subtotal");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(22, 50, 0, 0);
-        jPanel8.add(jLabel4, gridBagConstraints);
-
-        SubTotal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 184;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(23, 6, 0, 32);
-        jPanel8.add(SubTotal, gridBagConstraints);
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Tax");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 18;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 50, 0, 0);
-        jPanel8.add(jLabel5, gridBagConstraints);
-
-        Tax.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 184;
-        gridBagConstraints.ipady = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 6, 0, 32);
-        jPanel8.add(Tax, gridBagConstraints);
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Total");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 50;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 50, 18, 0);
-        jPanel8.add(jLabel6, gridBagConstraints);
-
-        Total.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        Total.addActionListener(new java.awt.event.ActionListener() {
+        changeDisplay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TotalActionPerformed(evt);
+                changeDisplayActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.ipadx = 184;
-        gridBagConstraints.ipady = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 6, 18, 32);
-        jPanel8.add(Total, gridBagConstraints);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(jLabel4)
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(SubTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                    .addComponent(Tax)
+                    .addComponent(Total))
+                .addGap(146, 146, 146)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tenders, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cashDisplay, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(changeDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, 0))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tenders, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(cashDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(changeDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SubTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Tax, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
+        txtupTotal.setEditable(false);
         txtupTotal.setBackground(new java.awt.Color(0, 0, 0));
         txtupTotal.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         txtupTotal.setForeground(new java.awt.Color(255, 255, 255));
@@ -1089,11 +1074,11 @@ public class Home extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(51, 51, 51)
-                .addComponent(date, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addComponent(date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(262, 262, 262)
-                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(465, 465, 465)
                 .addComponent(txtupTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
@@ -1136,11 +1121,11 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2))
                         .addGap(0, 0, 0)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)))
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 933, Short.MAX_VALUE)))
         );
 
         pack();
@@ -1160,6 +1145,21 @@ public class Home extends javax.swing.JFrame {
         {
             System.err.format("No Printer found", e.getMessage());
         }*/
+     JOptionPane printingDialog = new JOptionPane("Printing in progress. Please wait...", JOptionPane.INFORMATION_MESSAGE);
+    JDialog dialog = printingDialog.createDialog(this, "Printing");
+
+    // Create a Timer to close the dialog after a delay
+    Timer timer = new Timer(2000, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            dialog.dispose(); // Close the dialog
+        }
+    });
+    timer.setRepeats(false); // Ensure the timer only runs once
+    timer.start(); // Start the timer
+
+    dialog.setVisible(true); 
+    
       ItemCost();
     Change();
 
@@ -1169,79 +1169,97 @@ public class Home extends javax.swing.JFrame {
     pj.setPrintable(new BillPrintable(), getPageFormat(pj));
     try {
         pj.print();
+         JOptionPane.showMessageDialog(this, "Printing completed successfully.", "Printing", JOptionPane.INFORMATION_MESSAGE);
+         reset2();
+          
     } catch (PrinterException ex) {
         ex.printStackTrace();
+           JOptionPane.showMessageDialog(this, "Printing failed: " + ex.getMessage(), "Printing Error", JOptionPane.ERROR_MESSAGE);
     }
         
     }//GEN-LAST:event_printbuttonActionPerformed
 
-    public PageFormat getPageFormat(PrinterJob pj)
-{
-    
+  public PageFormat getPageFormat(PrinterJob pj) {
     PageFormat pf = pj.defaultPage();
-    Paper paper = pf.getPaper();    
+    Paper paper = pf.getPaper();
 
     double bodyHeight = bHeight;  
     double headerHeight = 5.0;                  
-    double footerHeight = 5.0;        
-    double width = cm_to_pp(8); 
-    double height = cm_to_pp(headerHeight+bodyHeight+footerHeight); 
-    paper.setSize(width, height);
-    paper.setImageableArea(0,10,width,height - cm_to_pp(1));  
-            
+    double footerHeight = 5.0; 
+
+    // Width of the paper in centimeters (for 80mm wide thermal paper)
+    double widthCm = 8.0; // 8.0 cm = 80 mm
+    // Total height in centimeters
+    double totalHeightCm = headerHeight + bodyHeight + footerHeight;
+
+    // Convert width and height to points
+    double widthPoints = cm_to_pp(widthCm);
+    double heightPoints = cm_to_pp(totalHeightCm);
+
+    // Set the size and imageable area of the paper
+    paper.setSize(widthPoints, heightPoints);
+    paper.setImageableArea(0, 10, widthPoints, heightPoints - cm_to_pp(1));  
+
     pf.setOrientation(PageFormat.PORTRAIT);  
     pf.setPaper(paper);    
 
     return pf;
 }
+
+// Helper method to convert centimeters to points
+protected static double cm_to_pp(double cm) {
+    return cm * 28.3464567; // 1 cm = 28.3464567 points
+}
    
     
     
-    protected static double cm_to_pp(double cm)
-    {            
-	        return toPPI(cm * 0.393600787);            
-    }
+ 
  
 protected static double toPPI(double inch)
     {            
 	        return inch * 72d;            
     }
-    
-public class BillPrintable implements Printable {
-  public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+  public class BillPrintable implements Printable {
+    private int getCenteredPosition(String text, FontMetrics metrics, double pageWidth) {
+        int textWidth = metrics.stringWidth(text);
+        return (int) ((pageWidth - textWidth) / 2);
+    }
+
+    @Override
+    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
         if (pageIndex != 0) return NO_SUCH_PAGE;
 
         Graphics2D g2d = (Graphics2D) graphics;
         double width = pageFormat.getImageableWidth();
         g2d.translate((int) pageFormat.getImageableX(), (int) pageFormat.getImageableY());
 
+        Font font = new Font("Monospaced", Font.PLAIN, 9);
+        g2d.setFont(font);
+        FontMetrics metrics = g2d.getFontMetrics(font);
+
         try {
             int y = 20;
             int yShift = 10;
             int headerRectHeight = 15;
-            g2d.setFont(new Font("Monospaced", Font.PLAIN, 9));
-            g2d.drawString("                                     ", 12, y);
-            y += yShift;
-            g2d.drawString("        Bean There, Done That        ", 12, y);
-            y += yShift;
-            g2d.drawString("                                     ", 12, y);
-            y += yShift;
 
-            g2d.drawString("   Brgy. Tagapo, Sta. Rosa, Laguna   ", 12, y);
-            y += yShift;
-            g2d.drawString(" VAT Registered TIN: 000-000-000-000 ", 12, y);
-            y += yShift;
-            g2d.drawString("    ", 12, y);
-            y += yShift;
-            g2d.drawString("       ", 12, y);
-            y += yShift;
-            g2d.drawString("-------------------------------------", 12, y);
-            y += headerRectHeight;
+            String[] lines = {
+                "                                     ",
+                "        Bean There, Done That        ",
+                "                                     ",
+                "   Brgy. Tagapo, Sta. Rosa, Laguna   ",
+                " VAT Registered TIN: 000-000-000-000 ",
+                "    ",
+                "       ",
+                "-------------------------------------",
+                "  Qty        Item Name         Price ",
+                "-------------------------------------"
+            };
 
-            g2d.drawString("  Qty        Item Name         Price ", 10, y);
-            y += yShift;
-            g2d.drawString("-------------------------------------", 10, y);
-            y += headerRectHeight;
+            for (String line : lines) {
+                g2d.drawString(line, getCenteredPosition(line, metrics, width), y);
+                y += yShift;
+            }
+            
 
             Map<String, Integer> itemQuantities = new HashMap<>();
 
@@ -1250,7 +1268,7 @@ public class BillPrintable implements Printable {
                 String name = itemName.get(s);
                 int quantityValue = quantity.get(s);
                 double aPrice = itemPrice.get(s);
-                  double priceWithTax = aPrice* (1 + 0.12); // 12% tax added
+                double priceWithTax = aPrice * (1 + 0.12); // 12% tax added
 
                 if (itemQuantities.containsKey(name)) {
                     itemQuantities.put(name, itemQuantities.get(name) + quantityValue);
@@ -1258,38 +1276,31 @@ public class BillPrintable implements Printable {
                     itemQuantities.put(name, quantityValue);
                 }
 
-                // Print items with aggregated quantities
-                g2d.drawString(" " + quantityValue + "           " + name + "         " + String.format("%.2f", priceWithTax), 10, y);
+                String itemLine = " " + quantityValue + "      " + name + "         " + String.format("%.2f", priceWithTax);
+                g2d.drawString(itemLine, getCenteredPosition(itemLine, metrics, width), y);
                 y += yShift;
             }
 
-            g2d.drawString("-------------------------------------", 10, y);
-            y += yShift;
-            g2d.drawString(" Total amount:               " + txtupTotal.getText() + "   ", 10, y);
-            y += yShift;
-            g2d.drawString("-------------------------------------", 10, y);
-            y += yShift;
-            g2d.drawString(" Cash      :                 " + "₱ " + cashDisplay.getText() + "   ", 10, y);
-            y += yShift;
-            g2d.drawString("-------------------------------------", 10, y);
-            y += yShift;
-            g2d.drawString(" Change   :                  " + changeDisplay.getText() + "   ", 10, y);
-            y += yShift;
-            g2d.drawString("                                     ", 12, y);
-            y += yShift;
-            g2d.drawString("                                     ", 12, y);
-            y += yShift;
+            String[] footerLines = {
+                "-------------------------------------",
+                " Total amount:          " + txtupTotal.getText() + "   ",
+                "-------------------------------------",
+                " Cash      :            " + "₱ " + cashDisplay.getText() + "   ",
+                "-------------------------------------",
+                " Change   :             " + changeDisplay.getText() + "   ",
+                "                                     ",
+                ""+ date.getText() + "",
+                "*************************************",
+                "       THANK YOU COME AGAIN          ",
+                "*************************************",
+                "       Bean There, Done That         ",
+                "                                     "
+            };
 
-            g2d.drawString("*************************************", 10, y);
-            y += yShift;
-            g2d.drawString("       THANK YOU COME AGAIN          ", 10, y);
-            y += yShift;
-            g2d.drawString("*************************************", 10, y);
-            y += yShift;
-            g2d.drawString("       Bean There, Done That         ", 10, y);
-            y += yShift;
-            g2d.drawString("                                     ", 10, y);
-            y += yShift;
+            for (String line : footerLines) {
+                g2d.drawString(line, getCenteredPosition(line, metrics, width), y);
+                y += yShift;
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -1297,31 +1308,43 @@ public class BillPrintable implements Printable {
 
         return PAGE_EXISTS;
     }
-   }
+}
 
     private void voidbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voidbuttonActionPerformed
-           DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
+          DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
+
+int selectedRow = jtable1.getSelectedRow();
+if (selectedRow >= 0) {
+    // Display confirmation dialog
+    int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to remove this item?", "Confirm Removal", JOptionPane.YES_NO_OPTION);
     
-    int Remove = jtable1.getSelectedRow();
-    if (Remove >= 0)
-    {
-        model.removeRow(Remove);
+    if (option == JOptionPane.YES_OPTION) {
+        // Remove the selected row
+        model.removeRow(selectedRow);
+
+        // Recalculate item costs
+        ItemCost();
+
+        // Check tender selection and update accordingly
+        if (tenders.getSelectedItem().equals("Cash")) {
+            Change(); // Calculate change if payment method is cash
+        } else {
+            changeDisplay.setText("");
+            cashDisplay.setText("");
+        }
     }
-    
-    ItemCost();
-    if (tenders.getSelectedItem().equals("Cash"))
-     {
-         Change();
-     }
-     else
-     {
-         changeDisplay.setText("");
-         cashDisplay.setText("");
-     }
+} else {
+    // If no row is selected, show a dialog
+    JOptionPane.showMessageDialog(this, "Please select an item to remove.", "No Item Selected", JOptionPane.INFORMATION_MESSAGE);
+}
 
     }//GEN-LAST:event_voidbuttonActionPerformed
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
+       int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to reset?", "Confirm Reset", JOptionPane.YES_NO_OPTION);
+
+    if (option == JOptionPane.YES_OPTION) {
+        // User confirmed, proceed with reset
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
         model.setRowCount(0);
         changeDisplay.setText("");
@@ -1331,7 +1354,7 @@ public class BillPrintable implements Printable {
         Tax.setText("");
         Total.setText("");
         txtupTotal.setText("");
-
+    }
     }//GEN-LAST:event_resetActionPerformed
 private JFrame frame;
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -1350,16 +1373,66 @@ private JFrame frame;
         // TODO add your handling code here:
     }//GEN-LAST:event_tendersActionPerformed
 
+     
+ public void reset2(){
+      DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
+        model.setRowCount(0);
+        changeDisplay.setText("");
+        cashDisplay.setText("");
+        barcode.setText("");
+        SubTotal.setText("");
+        Tax.setText("");
+        Total.setText("");
+        txtupTotal.setText("");
+ }
+  
     private void jbuttonconfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonconfirmActionPerformed
-          if (tenders.getSelectedItem().equals("Cash"))
-     {
-         Change();
-     }
-     else
-     {
-         changeDisplay.setText("");
-         cashDisplay.setText("");
-     }
+      
+        if (tenders.getSelectedItem().equals("Cash")) {
+        String cashInput = cashDisplay.getText().trim();
+        String totalInput = Total.getText().trim();
+
+        // Remove currency symbol and any formatting
+        String cleanCashInput = cashInput.replaceAll("[₱\\s]", "");
+        String cleanTotalInput = totalInput.replaceAll("[₱\\s]", "");
+
+        // Validate the cash input
+        if (!cleanCashInput.isEmpty() && !cleanTotalInput.isEmpty()) {
+            try {
+                double cashAmount = Double.parseDouble(cleanCashInput);
+                double totalAmount = Double.parseDouble(cleanTotalInput);
+
+                if (cashAmount < totalAmount) {
+                    
+                    JOptionPane.showMessageDialog(this, "Cash amount must be equal to or greater than Total.", "Insufficient Cash", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    // Proceed with your logic when cash amount is sufficient
+                    Change(); // Call your Change() method or perform required actions
+                    String formattedCashAmount = String.format("%.2f", cashAmount);
+                    cashDisplay.setText(formattedCashAmount);
+                  
+
+                    // Clear any previous error messages
+                    JOptionPane.getRootFrame().dispose(); // Disposes previous dialogs
+                                       // Show confirmation dialog
+                    int result = JOptionPane.showConfirmDialog(this, "CONFIRM PAYMENT?", "Payment", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+                    if (result == JOptionPane.YES_OPTION) {
+                        printbuttonActionPerformed(evt); // Call the print button action
+                    }
+
+                     
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Invalid input. Please enter valid numeric values.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Select item/s and enter the cash amount.", "Missing Input", JOptionPane.ERROR_MESSAGE);
+        }
+    } else {
+        changeDisplay.setText("");
+        cashDisplay.setText("");
+    }
 
     }//GEN-LAST:event_jbuttonconfirmActionPerformed
 
@@ -1369,11 +1442,13 @@ private JFrame frame;
       if (EnterNum == "")
       {
           cashDisplay.setText(jbutton1.getText());
+        
       }
       else
       {
           EnterNum = cashDisplay.getText() + jbutton1.getText();
           cashDisplay.setText(EnterNum);
+         
       }
 
     }//GEN-LAST:event_jbutton1ActionPerformed
@@ -1382,13 +1457,17 @@ private JFrame frame;
        double Price = 142.86;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Salted C", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "Salted C  ", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_saltedCActionPerformed
 
     private void clatteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clatteActionPerformed
-        // TODO add your handling code here:
+         double Price = 142.86;
+        double cPrice = ((Price * 12)/100) + Price;
+        DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
+        model.addRow(new Object[] {"1", "CocoaLatte", Price, String.format("%.2f", cPrice)});
+        ItemCost();
     }//GEN-LAST:event_clatteActionPerformed
 
     private void jbutton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton2ActionPerformed
@@ -1535,7 +1614,7 @@ private JFrame frame;
               double Price = 133.93;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Caramel M", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "Caramel M ", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_caramelMActionPerformed
@@ -1553,7 +1632,7 @@ private JFrame frame;
               double Price = 107.14;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Americano", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "Americano ", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_americanoActionPerformed
@@ -1562,7 +1641,7 @@ private JFrame frame;
       double Price = 133.93;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "W Mocha", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "W Mocha   ", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_wmochaActionPerformed
@@ -1571,7 +1650,7 @@ private JFrame frame;
               double Price = 133.93;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Mocha", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "Mocha     ", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_mochaActionPerformed
@@ -1580,7 +1659,7 @@ private JFrame frame;
        double Price = 107.14;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Passion F", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "Passion F ", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_passionActionPerformed
@@ -1589,7 +1668,7 @@ private JFrame frame;
                  double Price = 107.14;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Cranberry", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "Cranberry ", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_cranbActionPerformed
@@ -1598,7 +1677,7 @@ private JFrame frame;
                double Price = 107.14;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Mango GT", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "Mango GT  ", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_mangoActionPerformed
@@ -1607,7 +1686,7 @@ private JFrame frame;
         double Price = 107.14;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "StBry T", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "StrwberryT", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_strawbActionPerformed
@@ -1616,7 +1695,7 @@ private JFrame frame;
         double Price = 107.14;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Melon T", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "Melon Tea ", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_melonActionPerformed
@@ -1625,7 +1704,7 @@ private JFrame frame;
              double Price = 120.54;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Apple S", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "Apple Soda", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_appleActionPerformed
@@ -1634,7 +1713,7 @@ private JFrame frame;
               double Price = 120.54;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Lemon S", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "Lemon Soda", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_lemonActionPerformed
@@ -1643,7 +1722,7 @@ private JFrame frame;
         double Price = 120.54;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "GreenA T", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "GreenA Tea", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_gappleActionPerformed
@@ -1652,7 +1731,7 @@ private JFrame frame;
         double Price = 120.54;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Orange T", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "Orange Tea", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_orangeActionPerformed
@@ -1661,7 +1740,7 @@ private JFrame frame;
               double Price = 120.54;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "StBry S", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "StrwberryS", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_strawbsActionPerformed
@@ -1670,7 +1749,7 @@ private JFrame frame;
         double Price = 142.86;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Matcha L", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "MatchaLtte", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_matchalActionPerformed
@@ -1679,7 +1758,7 @@ private JFrame frame;
                  double Price = 142.86;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Dirty M", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "Dirty M   ", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_dmatchaActionPerformed
@@ -1688,7 +1767,7 @@ private JFrame frame;
                   double Price = 142.86;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Vanilla L", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "Vanilla L ", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_vlatteActionPerformed
@@ -1697,7 +1776,7 @@ private JFrame frame;
         double Price = 151.79;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "WMocha F", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "WMocha F  ", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_wmochafActionPerformed
@@ -1706,7 +1785,7 @@ private JFrame frame;
         double Price = 151.79;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Mocha F", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "Mocha F   ", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_mochafActionPerformed
@@ -1715,7 +1794,7 @@ private JFrame frame;
        double Price = 156.25;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Blueberry", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "Blueberry ", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_bbckActionPerformed
@@ -1724,7 +1803,7 @@ private JFrame frame;
         double Price = 156.25;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Lava Ck", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "Lava Cake ", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_lvckActionPerformed
@@ -1733,7 +1812,7 @@ private JFrame frame;
         double Price = 17.86;
         double cPrice = ((Price * 12)/100) + Price;
         DefaultTableModel model = (DefaultTableModel) jtable1.getModel();
-        model.addRow(new Object[] {"1", "Upsize", Price, String.format("%.2f", cPrice)});
+        model.addRow(new Object[] {"1", "Upsize     ", Price, String.format("%.2f", cPrice)});
         ItemCost();
 
     }//GEN-LAST:event_upsizeActionPerformed
@@ -1741,6 +1820,14 @@ private JFrame frame;
     private void TotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TotalActionPerformed
+
+    private void TaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TaxActionPerformed
+
+    private void changeDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeDisplayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_changeDisplayActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1812,10 +1899,8 @@ private JFrame frame;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jbutton0;
     private javax.swing.JButton jbutton1;

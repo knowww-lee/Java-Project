@@ -83,13 +83,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" max="32767" attributes="0"/>
                           <Component id="jPanel1" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jPanel7" pref="879" max="32767" attributes="0"/>
+                  <Component id="jPanel7" pref="933" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -219,6 +219,9 @@
                 </LineBorder>
               </Border>
             </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbutton2ActionPerformed"/>
@@ -242,6 +245,9 @@
                   <Color PropertyName="color" blue="33" green="33" red="33" type="rgb"/>
                 </LineBorder>
               </Border>
+            </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -267,6 +273,9 @@
                 </LineBorder>
               </Border>
             </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbutton1ActionPerformed"/>
@@ -290,6 +299,9 @@
                   <Color PropertyName="color" blue="33" green="33" red="33" type="rgb"/>
                 </LineBorder>
               </Border>
+            </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -315,6 +327,9 @@
                 </LineBorder>
               </Border>
             </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbutton6ActionPerformed"/>
@@ -338,6 +353,9 @@
                   <Color PropertyName="color" blue="33" green="33" red="33" type="rgb"/>
                 </LineBorder>
               </Border>
+            </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -363,6 +381,9 @@
                 </LineBorder>
               </Border>
             </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbutton8ActionPerformed"/>
@@ -386,6 +407,9 @@
                   <Color PropertyName="color" blue="33" green="33" red="33" type="rgb"/>
                 </LineBorder>
               </Border>
+            </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -411,6 +435,9 @@
                 </LineBorder>
               </Border>
             </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbutton7ActionPerformed"/>
@@ -434,6 +461,9 @@
                   <Color PropertyName="color" blue="33" green="33" red="33" type="rgb"/>
                 </LineBorder>
               </Border>
+            </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -459,6 +489,9 @@
                 </LineBorder>
               </Border>
             </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbuttonclearActionPerformed"/>
@@ -483,6 +516,9 @@
                 </LineBorder>
               </Border>
             </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbutton0ActionPerformed"/>
@@ -490,6 +526,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="barcode">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="IDAutomationHC39M" size="24" style="0"/>
             </Property>
@@ -499,7 +536,7 @@
         <Component class="javax.swing.JButton" name="jbuttonconfirm">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="ff" red="0" type="rgb"/>
+              <Color blue="33" green="cc" red="0" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="36" style="1"/>
@@ -507,11 +544,14 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="CONFIRM"/>
+            <Property name="text" type="java.lang.String" value="PAY"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder roundedCorners="true"/>
               </Border>
+            </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -535,6 +575,9 @@
                 <LineBorder roundedCorners="true"/>
               </Border>
             </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="printbuttonActionPerformed"/>
@@ -556,6 +599,9 @@
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder roundedCorners="true"/>
               </Border>
+            </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -579,6 +625,9 @@
                 <LineBorder roundedCorners="true"/>
               </Border>
             </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetActionPerformed"/>
@@ -600,6 +649,9 @@
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder roundedCorners="true"/>
               </Border>
+            </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -664,59 +716,59 @@
                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">
                       <Group type="102" alignment="2" attributes="0">
-                          <Component id="wmochaf" max="32767" attributes="0"/>
+                          <Component id="wmochaf" pref="87" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="mochaf" max="32767" attributes="0"/>
+                          <Component id="mochaf" pref="87" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="bbck" max="32767" attributes="0"/>
+                          <Component id="bbck" pref="87" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="lvck" max="32767" attributes="0"/>
+                          <Component id="lvck" pref="89" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="upsize" max="32767" attributes="0"/>
+                          <Component id="upsize" pref="90" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="2" attributes="0">
-                          <Component id="caramelM" max="32767" attributes="0"/>
+                          <Component id="caramelM" pref="88" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="cappuccino" max="32767" attributes="0"/>
+                          <Component id="cappuccino" pref="88" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="americano" max="32767" attributes="0"/>
+                          <Component id="americano" pref="88" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="wmocha" max="32767" attributes="0"/>
+                          <Component id="wmocha" pref="88" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="mocha" max="32767" attributes="0"/>
+                          <Component id="mocha" pref="88" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="2" attributes="0">
-                          <Component id="passion" max="32767" attributes="0"/>
+                          <Component id="passion" pref="88" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="cranb" max="32767" attributes="0"/>
+                          <Component id="cranb" pref="88" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="mango" max="32767" attributes="0"/>
+                          <Component id="mango" pref="88" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="strawb" max="32767" attributes="0"/>
+                          <Component id="strawb" pref="88" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="melon" max="32767" attributes="0"/>
+                          <Component id="melon" pref="88" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="2" attributes="0">
-                          <Component id="apple" max="32767" attributes="0"/>
+                          <Component id="apple" pref="88" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="lemon" max="32767" attributes="0"/>
+                          <Component id="lemon" pref="88" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="gapple" max="32767" attributes="0"/>
+                          <Component id="gapple" pref="88" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="orange" max="32767" attributes="0"/>
+                          <Component id="orange" pref="88" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="strawbs" max="32767" attributes="0"/>
+                          <Component id="strawbs" pref="88" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="2" attributes="0">
-                          <Component id="matchal" max="32767" attributes="0"/>
+                          <Component id="matchal" pref="88" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="dmatcha" max="32767" attributes="0"/>
+                          <Component id="dmatcha" pref="88" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="clatte" max="32767" attributes="0"/>
+                          <Component id="clatte" pref="88" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="saltedC" max="32767" attributes="0"/>
+                          <Component id="saltedC" pref="88" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="vlatte" max="32767" attributes="0"/>
+                          <Component id="vlatte" pref="88" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
@@ -1202,271 +1254,229 @@
     <Container class="javax.swing.JPanel" name="jPanel5">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+          <Color blue="99" green="99" red="0" type="rgb"/>
         </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                  <Component id="jPanel8" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                  <Component id="jPanel3" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel5" min="-2" pref="58" max="-2" attributes="0"/>
+                              <Component id="jLabel6" min="-2" pref="108" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="SubTotal" pref="248" max="32767" attributes="0"/>
+                      <Component id="Tax" alignment="0" max="32767" attributes="0"/>
+                      <Component id="Total" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" pref="91" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="91" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="tenders" alignment="1" min="-2" pref="239" max="-2" attributes="0"/>
+                      <Component id="cashDisplay" alignment="1" min="-2" pref="239" max="-2" attributes="0"/>
+                      <Component id="changeDisplay" min="-2" pref="239" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jPanel3" max="32767" attributes="0"/>
-                      <Component id="jPanel8" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="tenders" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cashDisplay" min="-2" pref="41" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <Component id="changeDisplay" min="-2" pref="42" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="SubTotal" min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="Tax" min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="Total" min="-2" pref="48" max="-2" attributes="0"/>
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <EmptySpace pref="33" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanel3">
+        <Component class="javax.swing.JTextField" name="SubTotal">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="99" red="0" type="rgb"/>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
             </Property>
           </Properties>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="101" pref="101" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="tenders" min="-2" pref="248" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel3" min="-2" pref="91" max="-2" attributes="0"/>
-                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Component id="cashDisplay" min="-2" pref="248" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel2" min="-2" pref="91" max="-2" attributes="0"/>
-                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Component id="changeDisplay" min="-2" pref="248" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              <Component id="tenders" min="-2" pref="40" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                              <Component id="cashDisplay" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                              <Component id="changeDisplay" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel1">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="24" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Tenders"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="tenders">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="1"/>
-                </Property>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
-                    <StringItem index="0" value="Cash"/>
-                    <StringItem index="1" value="CC/DC"/>
-                    <StringItem index="2" value="QRPH"/>
-                  </StringArray>
-                </Property>
-                <Property name="autoscrolls" type="boolean" value="true"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tendersActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="24" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Change"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="24" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Cash"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="changeDisplay">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="1"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="cashDisplay">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="1"/>
-                </Property>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="jPanel8">
+        </Component>
+        <Component class="javax.swing.JTextField" name="Tax">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="99" red="0" type="rgb"/>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
             </Property>
           </Properties>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel4">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="24" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Subtotal"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="0" gridY="0" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="22" insetsLeft="50" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JTextField" name="SubTotal">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="1"/>
-                </Property>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="3" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="184" ipadY="0" insetsTop="23" insetsLeft="6" insetsBottom="0" insetsRight="32" anchor="18" weightX="0.0" weightY="0.0"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="24" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Tax"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="18" ipadY="0" insetsTop="18" insetsLeft="50" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JTextField" name="Tax">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="1"/>
-                </Property>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="3" gridY="1" gridWidth="1" gridHeight="2" fill="0" ipadX="184" ipadY="1" insetsTop="21" insetsLeft="6" insetsBottom="0" insetsRight="32" anchor="18" weightX="0.0" weightY="0.0"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel6">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="24" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Total"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="0" gridY="3" gridWidth="3" gridHeight="1" fill="0" ipadX="50" ipadY="0" insetsTop="18" insetsLeft="50" insetsBottom="18" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JTextField" name="Total">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="1"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TotalActionPerformed"/>
-              </Events>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="3" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="184" ipadY="1" insetsTop="18" insetsLeft="6" insetsBottom="18" insetsRight="32" anchor="18" weightX="0.0" weightY="0.0"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-          </SubComponents>
-        </Container>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TaxActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="Total">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TotalActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="24" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Subtotal"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel5">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="24" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Tax"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel6">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="24" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Total"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="24" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Change"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="24" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Tenders"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="tenders">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="Cash"/>
+                <StringItem index="1" value="CC/DC"/>
+                <StringItem index="2" value="QRPH"/>
+              </StringArray>
+            </Property>
+            <Property name="autoscrolls" type="boolean" value="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tendersActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="cashDisplay">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="24" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Cash"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="changeDisplay">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="changeDisplayActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel2">
@@ -1481,11 +1491,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Component id="jLabel9" pref="165" max="32767" attributes="0"/>
+                  <Component id="jLabel9" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                  <Component id="date" pref="48" max="32767" attributes="0"/>
+                  <Component id="date" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="262" max="-2" attributes="0"/>
-                  <Component id="jLabel7" pref="135" max="32767" attributes="0"/>
+                  <Component id="jLabel7" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="465" max="-2" attributes="0"/>
                   <Component id="txtupTotal" min="-2" pref="197" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
@@ -1514,6 +1524,7 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="txtupTotal">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
